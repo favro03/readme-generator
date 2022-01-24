@@ -1,0 +1,19 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "Generates a professional ReadMe file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/favro03/readme-generator.git"
+  },
+  "author": "Tracy Favro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/favro03/readme-generator/issues"
+  },
+  "homepage": "https://github.com/favro03/readme-generator#readme"
+}
