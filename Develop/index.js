@@ -1,12 +1,12 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-//const fs = require('fs');
-//const pageMD = generatePage(userName, email);
-//const generatePage = require('./src/page-template.js');
+const fs = require('fs');
+//const pageMD = generatePage();
+const generatePage = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 
- const questionsPrompts = () =>{
+ const questionsPrompts = (data) =>{
     return inquirer.prompt([
         {
             //Your GitHub user name
@@ -112,47 +112,31 @@ const inquirer = require('inquirer');
         {
             type: 'input',
             name: 'contributing',
-            message: 'Enter guidelines on how others can contribute.',
-        },
-        {
-            //dependencies
-            type: 'input',
-            name: 'dependencies',
-            message: 'List out any dependencies.'
+            message: 'What does the user need to know to contribute to the repo?',
         },
         {
             //tests
             type: 'input',
             name: 'tests',
-            message: 'Enter test, and examples on how to run them.',
+            message: 'What do others need to know about using the repo?',
         },
-        {
-            //What do others need to know about using the repo
-            type: 'input',
-            name: 'usage',
-            message: 'What do others need to know about using the repo?'
-        },
-        {
-            //What does the user need to know to contribute to the repo?
-            type: 'input',
-            name: 'contributing',
-            message: 'What does the user need to know to contribute to the repo?'
-        },
-    ])
-    
+    ])   
 };
-questionsPrompts().then(answers => {
-    const info = answers;
-    console.log(info);
+questionsPrompts()
+.then(data => {
+    //const info = answers;
+    console.log(data);
+    const pageMd = generatePage(data);
+// TODO: Create a function to write README file
+    fs.writeFile('./README-test.md', pageMd, err => {
+       if (err) throw new Error(err);
+
+       console.log('Page created! Check out README-test.md in this directory to see it!');
+    });
 });
 
-// TODO: Create a function to write README file
 
-//fs.writeFile('./README-Template.md', pageMD, err => {
- //   if (err) throw new Error(err);
-  
- //   console.log('Portfolio complete! Check out README-Template.md to see the output!');
-  //});
+
 
 // TODO: Create a function to initialize app
 function init() {}
