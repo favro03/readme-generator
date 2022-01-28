@@ -5,7 +5,7 @@ const fs = require('fs');
 const generatePage = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
-
+// TODO: Create a function to initialize app
  const questionsPrompts = (data) =>{
     return inquirer.prompt([
         {
@@ -122,26 +122,18 @@ const generatePage = require('./utils/generateMarkdown');
         },
     ])   
 };
+// Function call to initialize app
 questionsPrompts()
 .then(data => {
     //const info = answers;
     console.log(data);
     const pageMd = generatePage(data);
 // TODO: Create a function to write README file
-    fs.writeFile('./README-test.md', pageMd, err => {
-       if (err) throw new Error(err);
-
-       console.log('Page created! Check out README-test.md in this directory to see it!');
+    fs.writeFile('./dist/README.md', pageMd, err => {
+       if (err){
+           console.log(err);
+           return;
+       } 
+       console.log('Page created! Check out README.md in the dist directory to see it!');
     });
 });
-
-
-
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
-
-
