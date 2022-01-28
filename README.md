@@ -34,6 +34,10 @@ This is a node.js command line app that allows you to build a readme file by ans
 ![Command Promp](/assets/images/commandLinePrompts.png)
 ![Generated ReadMe](/assets/images/generatedReadmeFile.png)
 
+Click the video below to see a walk through on how to use this app:
+https://www.awesomescreenshot.com/video/7088888?key=bcd79393d3afcb4e0f7bd7776be1b1fe
+
+
 
 ## License
       
